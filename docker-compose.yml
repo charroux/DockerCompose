@@ -1,0 +1,17 @@
+version: '3'
+services:
+  rest-web-service:
+    build: ./RestWebService
+    ports: 
+      - 8181:8080
+      
+  presentation:
+    image: php:apache
+    volumes: 
+      - ./presentation:/var/www/html
+#    links:
+#      - "rest-web-service"
+    ports:
+      - 8282:80
+#   depends_on: 
+#      - rest-web-service
