@@ -3,9 +3,9 @@ services:
 
   db:
     image: "redis:alpine"
-    hostname: redis
+    hostname: redis       # host name in the RestWebService application
     ports:
-     - "6379:6379"
+     - "6379:6379"        
      
   rest-web-service:
     build: ./RestWebService
@@ -17,10 +17,6 @@ services:
   presentation:
     image: php:apache
     volumes: 
-      - ./presentation:/var/www/html
-#    links:
-#      - "rest-web-service"
+      - ./presentation:/var/www/html  # unable html updating without restarting docker compose
     ports:
-      - 8282:80
-#   depends_on: 
-#      - rest-web-service
+      - 8282:80          # use http://localhost:8282/ in a web browser
