@@ -1,9 +1,18 @@
 version: '3'
 services:
+
+  db:
+    image: "redis:alpine"
+    hostname: redis
+    ports:
+     - "6379:6379"
+     
   rest-web-service:
     build: ./RestWebService
     ports: 
       - 8181:8080
+    links:
+      - "db:redis"
       
   presentation:
     image: php:apache
