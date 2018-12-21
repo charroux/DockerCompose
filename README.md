@@ -12,6 +12,8 @@ cd ..
 docker-compose up --build
 
 --build is used to upadate Docker images each time docker-compose is used.
+
+Display the presentation layer in a web browser: http://localhost:8282/
 ```
 
 The PHP presentation layer: https://github.com/charroux/DockerCompose/blob/master/presentation/index.php
